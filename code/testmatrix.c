@@ -157,7 +157,7 @@ int main()
             scanf("%d",&id2);
             printf("Input what matrix to store the answer: ");
             scanf("%d",&id3);
-            ret = substrMatrix(matrix[id1], matrix[id2], matrix[id3]);
+            ret = substractMatrix(matrix[id1], matrix[id2], matrix[id3]);
             if (ret == 0) printf("Failed to substract!\n");
             else printf("Successfully substracted!\n");
             break;

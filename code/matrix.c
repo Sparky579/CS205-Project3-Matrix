@@ -42,14 +42,19 @@ bool deleteMatrix(Matrix **mat)
 	*mat = NULL;
     return 1;
 }
-/*void deleteMatrix(Matrix *mat)
-{
+/*
+@deprecated
+bool deleteMatrix(Matrix *mat)
+{   
+    if (mat == NULL) return 0;
 	//delete a matrix
 	//this version requires to set mat=NULL after using
 	if (mat == NULL) return;
 	if (mat->datas != NULL) free(mat->datas);
 	free(mat);
-}*/
+    return 1;
+}
+*/
 bool setPosition(Matrix *mat, size_t r, size_t c, float num)
 {
     //set a scalar num to mat[l][r]
@@ -137,7 +142,7 @@ bool addMatrix(const Matrix *mat1, const Matrix *mat2, Matrix *ansMat)
 	}
 	return 1;
 }
-bool substrMatrix(const Matrix *mat1, const Matrix *mat2, Matrix *ansMat)
+bool substractMatrix(const Matrix *mat1, const Matrix *mat2, Matrix *ansMat)
 {
     /*make matrix ansMat equals to mat1 + mat2
     requires same size

@@ -32,13 +32,15 @@ Matrix * createMatrix(size_t rows, size_t columns)
 	mx->columns = columns;
 	return mx;
 }
-void deleteMatrix(Matrix **mat)
+bool deleteMatrix(Matrix **mat)
 {
-    //delete the matrix and free the memory
-	if (*mat == NULL) return;
+    /*delete the matrix and free the memory
+    return 1 if delete successfully*/
+	if (*mat == NULL) return 0;
 	if ((*mat)->datas != NULL) free((*mat)->datas);
 	free(*mat);
 	*mat = NULL;
+    return 1;
 }
 /*void deleteMatrix(Matrix *mat)
 {
@@ -48,7 +50,15 @@ void deleteMatrix(Matrix **mat)
 	if (mat->datas != NULL) free(mat->datas);
 	free(mat);
 }*/
-bool addPosition(Matrix *mat, size_t r, size_t c, int num)
+bool setPosition(Matrix *mat, size_t r, size_t c, float num)
+{
+    //set a scalar num to mat[l][r]
+    if (mat == NULL) return 0;
+	if (mat->rows <= r || mat->columns <= c) return 0;
+	*pos(mat, r, c) = num;
+	return 1;
+}
+bool addPosition(Matrix *mat, size_t r, size_t c, float num)
 {
 	//add a scalar num to mat[l][r]
     if (mat == NULL) return 0;
@@ -56,12 +66,12 @@ bool addPosition(Matrix *mat, size_t r, size_t c, int num)
 	*pos(mat, r, c) += num;
 	return 1;
 }
-bool substrPosition(Matrix *mat, size_t r, size_t c, int num)
+bool substrPosition(Matrix *mat, size_t r, size_t c, float num)
 {
 	//substract a scalar num to mat[l][r]
 	return addPosition(mat, r, c, -num);
 }
-bool addScalar(Matrix *mat, int num)
+bool addScalar(Matrix *mat, float num)
 {
     //add a scalar num to all the elements in matrix mat
     if (mat == NULL) return 0;
@@ -72,12 +82,12 @@ bool addScalar(Matrix *mat, int num)
     }
     return 1;
 }
-bool substrScalar(Matrix *mat, int num)
+bool substrScalar(Matrix *mat, float num)
 {
     //substract a scalar num to all the elements in matrix mat
     return addScalar(mat, -num);
 }
-bool multiScalar(Matrix *mat, int num)
+bool multiScalar(Matrix *mat, float num)
 {
     //make matrix mat (num) times
     if (mat == NULL) return 0;
@@ -127,7 +137,7 @@ bool addMatrix(const Matrix *mat1, const Matrix *mat2, Matrix *ansMat)
 	}
 	return 1;
 }
-bool subtractMatrix(const Matrix *mat1, const Matrix *mat2, Matrix *ansMat)
+bool substrMatrix(const Matrix *mat1, const Matrix *mat2, Matrix *ansMat)
 {
     /*make matrix ansMat equals to mat1 + mat2
     requires same size
@@ -170,17 +180,18 @@ bool multiMatrix(const Matrix *mat1, const Matrix *mat2, Matrix *ansMat)
     } 
     return 1;
 }
-void printMatrix(const Matrix *mat)
+bool printMatrix(const Matrix *mat)
 {
     /*print out the matrix*/
     if (mat == NULL) {
         printf("It is a NULL matrix!\n");
-        return;
+        return 0;
     }
     for (int r = 0; r < mat->rows; r++) {
         for (int c = 0; c < mat->columns; c++){
-            printf("%.0f ", *pos(mat, r, c));
+            printf("%f ", *pos(mat, r, c));
         }
         printf("\n");
     } 
+    return 1;
 }

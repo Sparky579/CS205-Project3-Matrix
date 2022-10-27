@@ -4,7 +4,7 @@ ___
 ### 项目简介：
 本项目实现了一个C语言下的矩阵库。该库支持创建矩阵，删除矩阵，复制矩阵，对矩阵加/减/乘一个常数或者另一个矩阵，以及找矩阵最大值和最小值等操作。该库实现了良好的内存安全性，防止误使用导致内存泄漏。
 另外，该项目附带了一个程序用于测试，可以方便地使用该库的各个功能。
-![a](./b.png)
+![a](./images/b.png)
 
 ###Part 1: Analysis
 需求：实现矩阵库，让用户可以方便且安全地应用。
@@ -73,9 +73,9 @@ bool deleteMatrix(Matrix **mat)
 ### Part 3: Result& Verification
 #### Case 1:
 Create a empty matrix
-![a](./c.png)
+![a](./images/c.png)
 Output it
-![a](./d.png)
+![a](./images/d.png)
 #### Case 2:
 Assign the matrix to:
 $$
@@ -87,56 +87,56 @@ $$
   \end{matrix}
   \right] \tag{3}
 $$
-![a](./e.png)
+![a](./images/e.png)
 Output it
-![a](./f.png)
+![a](./images/f.png)
 #### Case 3:
 create another $3*3$ matrix and copy the first one to this one
-![a](./g.png)
-![a](./h.png)
-![a](./i.png)
+![a](./images/g.png)
+![a](./images/h.png)
+![a](./images/i.png)
 #### Case 4:
 add scalar $0.5$ to the elements of matrix 2
-![a](./j.png)
-![a](./k.png)
+![a](./images/j.png)
+![a](./images/k.png)
 #### Case 5:
 substract elements of matrix 1 by $0.5$
-![a](./l.png)
-![a](./m.png)
+![a](./images/l.png)
+![a](./images/m.png)
 #### Case 6:
 multiply matrix 1 by $1.5$
-![a](./n.png)
-![a](./o.png)
+![a](./images/n.png)
+![a](./images/o.png)
 #### Case 7:
 create matrix 3 of $3 * 3$, make matrix 3 to matrix 1 + matrix 2
-![a](./p.png)
-![a](./q.png)
+![a](./images/p.png)
+![a](./images/q.png)
 #### Case 8:
 create matrix 4 of $3 * 3$, make matrix 4 to matrix 1 - matrix 2
-![a](./r.png)
-![a](./s.png)
+![a](./images/r.png)
+![a](./images/s.png)
 #### Case 9:
 create matrix 5 of $3 * 3$, make matrix 5 to matrix 3 * matrix 4
-![a](./t.png)
-![a](./u.png)
+![a](./images/t.png)
+![a](./images/u.png)
 #### Case 10:
 find the minimum value of matrix 5
-![a](./v.png)
+![a](./images/v.png)
 #### Case 11:
 find the maximum value of matrix 5
-![a](./w.png)
+![a](./images/w.png)
 ### Below are exception handling
 #### Case 12:
 delete a matrix more than one time
-![a](./x.png)
+![a](./images/x.png)
 #### Case 13:
 make the operation matrix and storage matrix same
 (it won't be successful because the operation matrices SHOULDN'T be modified, it is const matrices)
-![a](./y.png)
+![a](./images/y.png)
 #### Case 14:
 if the size of answer matrix has something wrong
 we create matrix 1(deleted) a $3*4$ matrix
-![a](./z.png)
-![a](./aa.png)
+![a](./images/z.png)
+![a](./images/aa.png)
 it remains the same
-![a](./ab.png)
+![a](./images/ab.png)

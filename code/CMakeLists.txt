@@ -1,2 +1,2 @@
 project(matrix)
-add_executable(matrix test.c)
+add_executable(matrix testmatrix.c)
